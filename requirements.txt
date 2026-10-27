@@ -1,0 +1,5 @@
+numpy>=1.26,<2.0
+opencv-python>=4.9,<4.11
+onnxruntime>=1.17
+insightface==0.7.3
+PyYAML>=6.0

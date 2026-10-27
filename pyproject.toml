@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "faceattend"
+version = "0.1.0"
+description = "Face detection and recognition engine for a smart attendance system (SCRFD + ArcFace via InsightFace)"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "numpy>=1.26,<2.0",
+    "opencv-python>=4.9,<4.11",
+    "onnxruntime>=1.17",
+    "insightface==0.7.3",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+gpu = ["onnxruntime-gpu>=1.17"]
+
+[project.scripts]
+faceattend = "faceattend.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -m 'not integration'"
+markers = ["integration: needs InsightFace models downloaded (run with -m integration)"]

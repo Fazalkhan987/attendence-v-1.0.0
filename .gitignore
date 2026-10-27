@@ -1,0 +1,11 @@
+venv/
+.venv/
+__pycache__/
+*.egg-info/
+data/
+reports/
+logs/
+*.db
+node_modules/
+*.log
+package-lock.json
